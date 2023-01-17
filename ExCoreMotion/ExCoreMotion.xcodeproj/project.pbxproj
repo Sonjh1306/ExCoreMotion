@@ -14,6 +14,7 @@
 		BDC9AB1B2976446D00EEE9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC9AB1A2976446D00EEE9C3 /* Assets.xcassets */; };
 		BDC9AB1E2976446D00EEE9C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC9AB1C2976446D00EEE9C3 /* LaunchScreen.storyboard */; };
 		BDC9AB2629764A9400EEE9C3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9AB2529764A9400EEE9C3 /* ViewModel.swift */; };
+		BDC9AB2C29768AF000EEE9C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9AB2B29768AF000EEE9C3 /* MainView.swift */; };
 		E40C803F02081271159B9125 /* Pods_ExCoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFED287F3F5D92796DBE18C7 /* Pods_ExCoreMotion.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		BDC9AB1D2976446D00EEE9C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDC9AB1F2976446D00EEE9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDC9AB2529764A9400EEE9C3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		BDC9AB2B29768AF000EEE9C3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BFED287F3F5D92796DBE18C7 /* Pods_ExCoreMotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExCoreMotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA24B6ABA6F154F8EDD9C099 /* Pods-ExCoreMotion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExCoreMotion.debug.xcconfig"; path = "Target Support Files/Pods-ExCoreMotion/Pods-ExCoreMotion.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,16 +75,41 @@
 		BDC9AB102976446C00EEE9C3 /* ExCoreMotion */ = {
 			isa = PBXGroup;
 			children = (
+				BDC9AB2929768AC600EEE9C3 /* ViewModel */,
+				BDC9AB2829768AC200EEE9C3 /* Contoller */,
+				BDC9AB2729768ABD00EEE9C3 /* View */,
 				BDC9AB112976446C00EEE9C3 /* AppDelegate.swift */,
 				BDC9AB132976446C00EEE9C3 /* SceneDelegate.swift */,
-				BDC9AB152976446C00EEE9C3 /* ViewController.swift */,
-				BDC9AB2529764A9400EEE9C3 /* ViewModel.swift */,
 				BDC9AB172976446C00EEE9C3 /* Main.storyboard */,
 				BDC9AB1A2976446D00EEE9C3 /* Assets.xcassets */,
 				BDC9AB1C2976446D00EEE9C3 /* LaunchScreen.storyboard */,
 				BDC9AB1F2976446D00EEE9C3 /* Info.plist */,
 			);
 			path = ExCoreMotion;
+			sourceTree = "<group>";
+		};
+		BDC9AB2729768ABD00EEE9C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDC9AB2B29768AF000EEE9C3 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BDC9AB2829768AC200EEE9C3 /* Contoller */ = {
+			isa = PBXGroup;
+			children = (
+				BDC9AB152976446C00EEE9C3 /* ViewController.swift */,
+			);
+			path = Contoller;
+			sourceTree = "<group>";
+		};
+		BDC9AB2929768AC600EEE9C3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BDC9AB2529764A9400EEE9C3 /* ViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C45580FA955007F270B05493 /* Pods */ = {
@@ -212,6 +239,7 @@
 				BDC9AB162976446C00EEE9C3 /* ViewController.swift in Sources */,
 				BDC9AB122976446C00EEE9C3 /* AppDelegate.swift in Sources */,
 				BDC9AB2629764A9400EEE9C3 /* ViewModel.swift in Sources */,
+				BDC9AB2C29768AF000EEE9C3 /* MainView.swift in Sources */,
 				BDC9AB142976446C00EEE9C3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

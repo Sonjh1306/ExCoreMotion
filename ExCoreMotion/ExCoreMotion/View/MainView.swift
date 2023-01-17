@@ -1,18 +1,15 @@
 //
-//  ViewController.swift
+//  MainView.swift
 //  ExCoreMotion
 //
 //  Created by sonjuhyeong on 2023/01/17.
 //
 
 import UIKit
-import SnapKit
-import CoreMotion
-import RxSwift
 
-class ViewController: UIViewController {
+class MainView: UIView {
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "CoreMotion"
         label.textColor = .black
@@ -21,7 +18,7 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private let todayStepsLabel: UILabel = {
+    let todayStepsLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.textColor = .red
@@ -30,7 +27,7 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private let weekStepsLabel: UILabel = {
+    let weekStepsLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.textColor = .blue
@@ -39,7 +36,7 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private let startDateLabel: UILabel = {
+    let startDateLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.textColor = .black
@@ -48,7 +45,7 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private let endDateLabel: UILabel = {
+    let endDateLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.textColor = .black
@@ -56,48 +53,23 @@ class ViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         return label
     }()
-    
-    private let viewModel = ViewModel()
-    private var disposeBag = DisposeBag()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .white
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         configureConstraints()
-    
-        bind()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let auth = viewModel.checkAuthorization()
-        viewModel.input.authorizationState.onNext(auth)
+        self.backgroundColor = .white
     }
     
-    private func bind() {
-
-        viewModel.output.todayStepCount
-            .bind(to: self.todayStepsLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        viewModel.output.weekStepCount
-            .bind(to: self.weekStepsLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        viewModel.output.errorAlert
-            .bind { [weak self] (alertMessage) in
-                DispatchQueue.main.async {
-                    self?.alert(message: alertMessage)
-                }
-            }.disposed(by: disposeBag)
-
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     private func setAddSubviews() {
-        self.view.addSubview(titleLabel)
-        self.view.addSubview(todayStepsLabel)
-        self.view.addSubview(weekStepsLabel)
-        self.view.addSubview(startDateLabel)
-        self.view.addSubview(endDateLabel)
+        self.addSubview(titleLabel)
+        self.addSubview(todayStepsLabel)
+        self.addSubview(weekStepsLabel)
+        self.addSubview(startDateLabel)
+        self.addSubview(endDateLabel)
     }
     
     private func configureConstraints() {
@@ -135,15 +107,4 @@ class ViewController: UIViewController {
     }
 
     
-}
-
-extension ViewController {
-    func alert(title : String = "알림", message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(okAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
 }
