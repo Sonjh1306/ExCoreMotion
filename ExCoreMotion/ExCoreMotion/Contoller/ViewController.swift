@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     private let viewModel = ViewModel()
     private var disposeBag = DisposeBag()
-    let mainView = MainView()
+    private let mainView = MainView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +39,9 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.errorAlert
+            .subscribe(on: MainScheduler.asyncInstance)
             .bind { [weak self] (alertMessage) in
-                DispatchQueue.main.async {
-                    self?.alert(message: alertMessage)
-                }
+                self?.alert(message: alertMessage)
             }.disposed(by: disposeBag)
 
     }
