@@ -24,8 +24,7 @@ class ViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let auth = viewModel.checkAuthorization()
-        viewModel.input.authorizationState.onNext(auth)
+        viewModel.input.onAppear.onNext(())
     }
     
     private func bind() {
@@ -43,7 +42,6 @@ class ViewController: UIViewController {
             .bind { [weak self] (alertMessage) in
                 self?.alert(message: alertMessage)
             }.disposed(by: disposeBag)
-
     }
 
 }
